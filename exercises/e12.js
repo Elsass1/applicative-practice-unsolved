@@ -6,14 +6,12 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
-  const sum = data.planets.reduce(function (acc, val) {
-    if (val.hasOwnProperty("moonsCount")) {
-      return acc + val.moonsCount;
+  return data.planets.reduce((acc, planet) => {
+    if (planet.moons) {
+      acc += planet.moons.length;
     }
-    return acc + 0;
+    return acc;
   }, 0);
-
-  return sum;
 }
 
 // === TEST YOURSELF ===
