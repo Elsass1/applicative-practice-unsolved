@@ -6,9 +6,15 @@ import { data } from "../data/data";
 
 export function allPlanetsMoonsCount(data) {
   // Your code goes here...
+  const sum = data.planets.reduce(function (acc, val) {
+    if (val.hasOwnProperty("moonsCount")) {
+      return acc + val.moonsCount;
+    }
+    return acc + 0;
+  }, 0);
+
+  return sum;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-12"
